@@ -1,14 +1,20 @@
-import numpy.random as ran
+# Task 2
 
-TotalBooks = 100
-borrowedBooks = 20
-no_of_renewals = ran.randint(0, 5, borrowedBooks)
-print(no_of_renewals)
+def calculate_precision_recall(y_true, y_pred):
+    TP = sum((y_pred[i] == 1) and (y_true[i] == 1) for i in range(len(y_pred)))
+    FP = sum((y_pred[i] == 1) and (y_true[i] == 0) for i in range(len(y_pred)))
+    FN = sum((y_pred[i] == 0) and (y_true[i] == 1) for i in range(len(y_pred)))
+    print(f"TP: {TP}\nFP: {FP}\nFN: {FN}\n")
+    
+    precision = TP / (TP + FP) #Quality
+    recall = TP / (TP + FN) #Quantity
+    return precision, recall
 
-print(f"{borrowedBooks} Books are borrowed out of {TotalBooks} \n")
-for i in range(borrowedBooks):
-    print(f"Book {i+1} has '{no_of_renewals[i]}' no of renewals")
+# Values of a book
+y_true = [1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1] 
+y_pred = [1, 0, 1, 0, 0, 1, 1, 1, 0, 1, 1, 1] 
 
-print(f"Total No of borrows are: {sum(no_of_renewals)}")
+print(f"y_true: {y_true}\ny_pred: {y_pred}\n")
 
-#preceision
+pre, rec = calculate_precision_recall(y_true, y_pred)
+print(f"Precesion: {pre}\nRecall: {rec}")

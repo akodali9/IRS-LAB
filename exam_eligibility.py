@@ -1,3 +1,4 @@
+# Task 1
 no_of_classes = [2, 3, 5, 2, 6, 5, 3, 4]
 no_attended = [2, 2, 3, 1, 5, 4, 3, 2]
 
