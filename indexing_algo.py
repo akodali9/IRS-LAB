@@ -1,4 +1,4 @@
-#Task 3
+# Task 3
 
 class Index_algo:
     def __init__(self):
@@ -15,6 +15,7 @@ class Index_algo:
                     sub_doc), sub_doc.index(query)
                 print(
                     f"Document '{' '.join(documents[doc_index])}' contains '{query}' at position[{quer_index}]")
+
 
 index = Index_algo()
 documents = []
