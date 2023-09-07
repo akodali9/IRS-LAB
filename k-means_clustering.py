@@ -34,12 +34,11 @@ cluster_assignments = [-1] * len(text_data)
 max_iterations = 100
 
 for _ in range(max_iterations):
-    # Assign each text to the nearest centroid
     for i, text in enumerate(text_data):
         similarities = [similarity(text, centroid_texts[j]) for j in range(k)]
         cluster_assignments[i] = np.argmax(similarities)
 
-# Print the clusters
+
 clusters = {}
 for i, cluster_id in enumerate(cluster_assignments):
     if cluster_id not in clusters:
